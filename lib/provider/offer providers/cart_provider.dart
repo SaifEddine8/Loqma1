@@ -15,7 +15,6 @@ class CartProvider with ChangeNotifier {
   double subTotal = 0.0;
   double tax = 0.0;
 
-  // Getter للوصول إلى كافة الطلبات
   List<OrderModel> get allOrders => _allOrders;
 
   Map<Offer, int> get _currentCart {
@@ -105,9 +104,7 @@ class CartProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  // -------------------------------------------------------------
-  // ⚡ عملية الـ Checkout
-  // -------------------------------------------------------------
+ 
   OrderModel? processCheckout({
     required UserModel currentUser,
   }) {
@@ -116,7 +113,6 @@ class CartProvider with ChangeNotifier {
       return null;
     }
 
-    // 1. خصم الكميات المتاحة من العروض
     for (var entry in _currentCart.entries) {
       Offer cartOffer = entry.key;
       int requestedQty = entry.value;
@@ -132,7 +128,6 @@ class CartProvider with ChangeNotifier {
 
     offersNotifier.value = List.from(offersNotifier.value);
 
-    // 2. إنشاء الطلب بالحالة الأولية "in preparation"
     OrderModel receipt = OrderModel(
       orderId: DateTime.now().millisecondsSinceEpoch.toString().substring(5),
       userId: currentUser.id.toString(),
@@ -142,7 +137,7 @@ class CartProvider with ChangeNotifier {
       orderedItems: Map.from(_currentCart),
       totalPrice: total,
       orderDate: DateTime.now(),
-      status: "in preparation", // 👈 لتوحيد النصوص مع OrderDetailsScreen
+      status: "in preparation", 
       volunteerId: null,
       volunteerName: null,
       volunteerPhone: null,
@@ -150,10 +145,8 @@ class CartProvider with ChangeNotifier {
 
     _allOrders.add(receipt);
 
-    // 3. استدعاء الإشعارات
     LocalNotificationService.createOrderNotifications(order: receipt);
 
-    // 4. تفريغ السلة
     _currentCart.clear();
     subTotal = 0.0;
     tax = 0.0;
@@ -162,17 +155,14 @@ class CartProvider with ChangeNotifier {
     return receipt;
   }
 
-  // 1️⃣ جلب الطلبات المعلقة المتوفرة للمتطوعين للاختيار منها
   List<OrderModel> getAvailableOrdersForVolunteers() {
     return _allOrders.where((order) => order.volunteerId == null && order.status.toLowerCase() == "pending").toList();
   }
 
-  // 2️⃣ جلب الطلبات التي وافق هذا المتطوع على توصيلها
   List<OrderModel> getMyAcceptedDeliveries(String volunteerId) {
     return _allOrders.where((order) => order.volunteerId == volunteerId).toList();
   }
 
-  // 3️⃣ قبول المتطوع للطلب
   void acceptOrder({
     required OrderModel order,
     required String volunteerId,
