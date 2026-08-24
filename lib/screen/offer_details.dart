@@ -61,6 +61,28 @@ class _OfferDetailsState extends State<OfferDetails> {
     ),
   );
   context.read<DeliveryProvider>().addToDelivery(widget.offer,volunteerId: userProvider.currentUser!.id); 
+
+  ScaffoldMessenger.of(context).hideCurrentSnackBar();
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      content: const Row(
+        children: [
+          Icon(Icons.check_circle, color: Colors.white),
+          SizedBox(width: 10),
+          Text(
+            "Reserved successfully!",
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          ),
+        ],
+      ),
+      backgroundColor: Colors.green.shade600,
+      behavior: SnackBarBehavior.floating, // يعطيه مظهر عصري وعائم
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+      duration: const Duration(seconds: 2),
+    )
+    );
 },
                     child: Text(
                       
@@ -89,6 +111,27 @@ class _OfferDetailsState extends State<OfferDetails> {
                     ),
                     onPressed: (){
                       context.read<CartProvider>().addToCart(widget.offer);
+                      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      content: const Row(
+        children: [
+          Icon(Icons.check_circle, color: Colors.white),
+          SizedBox(width: 10),
+          Text(
+            "Added to cart successfully!",
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          ),
+        ],
+      ),
+      backgroundColor: Colors.green.shade600,
+      behavior: SnackBarBehavior.floating,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+      duration: const Duration(seconds: 2),
+    ),
+  );
                     },
                     child: Text(
                       
@@ -108,7 +151,7 @@ class _OfferDetailsState extends State<OfferDetails> {
       ),
       body: SingleChildScrollView(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Stack(
               children: [
@@ -147,7 +190,7 @@ class _OfferDetailsState extends State<OfferDetails> {
                 ),
                 Positioned(
                   top: 35,
-                  right: 20,
+                  left: 20,
                   child: CircleAvatar(
                     backgroundColor: Colors.black54,
                     child: IconButton(
@@ -164,7 +207,7 @@ class _OfferDetailsState extends State<OfferDetails> {
                 ),
                 Positioned(
                   top: 35,
-                  left: 20,
+                  right: 20,
                   child: CircleAvatar(
                     backgroundColor: Colors.black54,
                     child: IconButton(
@@ -222,7 +265,7 @@ class _OfferDetailsState extends State<OfferDetails> {
             Padding(
               padding: const EdgeInsets.all(16),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     widget.offer.title,
@@ -250,7 +293,7 @@ class _OfferDetailsState extends State<OfferDetails> {
                           ),
                         )
                       : Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Text(
                               "${widget.offer.originalPrice} JD",
@@ -272,6 +315,7 @@ class _OfferDetailsState extends State<OfferDetails> {
                         ),
                   const SizedBox(height: 25),
                   Container(
+                    alignment: .centerLeft,
                     padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
                       color: Colors.grey.shade100,
@@ -309,7 +353,7 @@ class _OfferDetailsState extends State<OfferDetails> {
                   ),
                   const SizedBox(height: 25),
                   Align(
-                    alignment: Alignment.centerRight,
+                    alignment: Alignment.centerLeft,
                     child: Text(
                       "Description",
                       style: ConstantStyle.titeStyle,
@@ -332,7 +376,7 @@ class _OfferDetailsState extends State<OfferDetails> {
                     ),
                     child: Text(
                       widget.offer.description,
-                      textAlign: TextAlign.right,
+                      textAlign: TextAlign.left,
                       style: const TextStyle(
                         fontSize: 16,
                         height: 1.6,
@@ -347,10 +391,10 @@ class _OfferDetailsState extends State<OfferDetails> {
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             const Text(
                               "Owner",
@@ -396,37 +440,38 @@ class _OfferDetailsState extends State<OfferDetails> {
     required String value,
   }){
     return Row(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: [
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Text(
-                title,
-                style: const TextStyle(
-                  color: Colors.grey,
-                  fontSize: 13,
-                ),
+    mainAxisAlignment: MainAxisAlignment.start,
+    children: [
+      Icon(
+        icon,
+        color: ConstantColors.primaryColor,
+      ),
+      const SizedBox(width: 12),
+      
+      Expanded(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              title,
+              style: const TextStyle(
+                color: Colors.grey,
+                fontSize: 13,
               ),
-              const SizedBox(height: 3),
-              Text(
-                value,
-                style: const TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
-                ),
+            ),
+            const SizedBox(height: 3),
+            Text(
+              value,
+              style: const TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.bold,
               ),
-            ],
-          ),
+            ),
+          ],
         ),
-        const SizedBox(width: 12),
-        Icon(
-          icon,
-          color: ConstantColors.primaryColor,
-        ),
-      ],
-    );
+      ),
+    ],
+  );
   }
 
 
@@ -434,7 +479,6 @@ class _OfferDetailsState extends State<OfferDetails> {
   Widget _buildOfferImage(String imagePath) {
   final String path = imagePath.trim();
 
-  // 1. إذا كان رابط شبكة عادي
   if (path.startsWith('http://') || path.startsWith('https://')) {
     return Image.network(
       path,
@@ -445,7 +489,6 @@ class _OfferDetailsState extends State<OfferDetails> {
     );
   }
 
-  // 2. إذا كان ملف محلي على الهاتف
   final cleanPath = path.startsWith('file://') 
       ? path.replaceFirst('file://', '') 
       : path;
@@ -461,7 +504,6 @@ class _OfferDetailsState extends State<OfferDetails> {
     );
   }
 
-  // 3. في حال لم يجد الصورة
   return _imagePlaceholder();
 }
 

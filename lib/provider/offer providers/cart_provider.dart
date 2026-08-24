@@ -172,7 +172,7 @@ class CartProvider with ChangeNotifier {
     order.volunteerId = volunteerId;
     order.volunteerName = volunteerName;
     order.volunteerPhone = volunteerPhone;
-    order.status = "in preparation";
+    order.status = "pending";
 
     LocalNotificationService.createOrderNotifications(order: order);
 
