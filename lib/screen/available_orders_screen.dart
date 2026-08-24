@@ -11,11 +11,9 @@ class AvailableOrdersScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // ⚡ التعديل: الاعتماد على CartProvider بدلاً من DeliveryProvider
     final cartProvider = Provider.of<CartProvider>(context);
     final availableOrders = cartProvider.getAvailableOrdersForVolunteers();
 
-    // جلب بيانات المتطوع الحالي بشكل آمن من UpdateUserProvider
     final currentUser = context.read<UpdateUserProvider>().currentUser;
 
     return Scaffold(
@@ -43,7 +41,6 @@ class AvailableOrdersScreen extends StatelessWidget {
                     trailing: ElevatedButton(
                       style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
                       onPressed: () {
-                        // ⚡ الاستدعاء المباشر من cartProvider
                         cartProvider.acceptOrder(
                           order: order,
                           volunteerId: currentVolunteerId,
