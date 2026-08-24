@@ -64,7 +64,7 @@ Offer copyWith({
     bool? public
   }) {
     return Offer(
-      id: this.id, // نمرر نفس الـ id الأصلي للوجبة حتى لا يتغير عداد الـ counter
+      id: this.id, 
       ownerId: ownerId ?? this.ownerId,
       title: title ?? this.title,
       description: description ?? this.description,

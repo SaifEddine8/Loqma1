@@ -41,7 +41,6 @@ class _ItemCardState extends State<ItemCard> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
 
-            /// الصورة
             Expanded(
               flex: 2,
               child: Stack(
@@ -139,7 +138,6 @@ class _ItemCardState extends State<ItemCard> {
                       ),
                     ),
 
-                    /// الكمية
                     Row(
                       children: [
                         const Icon(Icons.fastfood, size: 16),
@@ -148,7 +146,6 @@ class _ItemCardState extends State<ItemCard> {
                       ],
                     ),
 
-                    /// تاريخ الانتهاء
                     Row(
                       children: [
                         const Icon(Icons.schedule, size: 16),
@@ -159,7 +156,6 @@ class _ItemCardState extends State<ItemCard> {
                       ],
                     ),
 
-                    /// السعر
                     if (widget.offer.type==OfferType.sale)
                       Row(
                         children: [

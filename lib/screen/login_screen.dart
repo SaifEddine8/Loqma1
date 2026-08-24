@@ -134,7 +134,6 @@ class _LoginScreenState extends State<LoginScreen> {
                         
                         context.read<UpdateUserProvider>().setUser(currentUser!);
                         
-                        // 🚀 استرجاع وعزل بيانات الـ Delivery للمستخدم الحالي فور تسجيل الدخول بنجاح
                         context.read<DeliveryProvider>().fetchUserDeliveryData(currentUser!.id.toString());
                         context.read<CartProvider>().fetchUserCart(currentUser!.id.toString());
                         context.read<FavoriteOfferProvider>().fetchUserFavorites(currentUser!.id.toString());

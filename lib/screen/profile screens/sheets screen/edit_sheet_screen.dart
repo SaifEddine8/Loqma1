@@ -25,13 +25,11 @@ class _EditSheetScreenState extends State<EditSheetScreen> {
   TextEditingController addressController = TextEditingController();
   AddressModel? selectedAddress;
   
-  // 🚀 متغير محلي لإدارة حالة نوع الحساب المختار
   UserType? selectedType=currentUser!.type;
 
   @override
   void initState() {
     super.initState();
-    // جلب القيمة الابتدائية لنوع حساب المستخدم الحالي لتحديد الـ Radio Button المناسب أول ما تفتح الشاشة
     final currentUser = context.read<UpdateUserProvider>().currentUser;
     selectedType = currentUser?.type ?? UserType.user;
   }
@@ -59,7 +57,6 @@ class _EditSheetScreenState extends State<EditSheetScreen> {
             Form(
               key: _formkey,
               child: SizedBox(
-                // زدنا الارتفاع قليلاً ليتناسب مع إضافة الـ Radio Buttons دون حدوث Overflow
                 height: MediaQuery.of(context).size.height / 1.6,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -122,7 +119,6 @@ class _EditSheetScreenState extends State<EditSheetScreen> {
                       ),
                     ),
 
-                    // 🛠️ قسم الـ Radio Buttons لنوع الحساب
                     const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 4.0),
                       child: Align(
@@ -175,7 +171,6 @@ class _EditSheetScreenState extends State<EditSheetScreen> {
               child: ElevatedButton(
                 onPressed: () {
                   if (_formkey.currentState!.validate()) {
-                    // 🚀 تعديل بناء كائن الـ UserModel لإضافة الـ type المختار
                     UserModel updatedUser = UserModel(
                       id: userProvider.currentUser!.id, // تأكد من إرسال الـ id حتى يطابق بشكل صحيح في القائمة
                       fullName: fullNameController.text.isNotEmpty ? fullNameController.text : userProvider.currentUser!.fullName,

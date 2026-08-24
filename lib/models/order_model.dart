@@ -5,12 +5,12 @@ class OrderModel {
   final String userId;
   final String userName;
   final String userPhone;
-  final String userAddress; //  عنوان المشتري / موقع التسليم
+  final String userAddress; 
   final Map<Offer, int> orderedItems;
   final double totalPrice;
   final DateTime orderDate;
   
-  String status; // "Pending", "In Preparation", "Completed", etc.
+  String status; 
   String? volunteerId;
   String? volunteerName;
   String? volunteerPhone;

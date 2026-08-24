@@ -88,7 +88,6 @@ class WaitingOfferCard extends StatelessWidget {
               ],
             ),
             const Divider(height: 24),
-            // Accept & Reject Action Buttons
             Row(
               children: [
                 Expanded(
