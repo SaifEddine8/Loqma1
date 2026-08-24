@@ -225,7 +225,6 @@ class _AddFoodScreenState extends State<AddFoodScreen> {
                 // icon: Icon(Icons.calendar_today),
                 // label:Text('Choose Production Date') ,),
 
-                // 2. كود الـ TextFormField
                 TextFormField(
                   controller: productionDateController,
                   readOnly: true,
@@ -250,7 +249,7 @@ class _AddFoodScreenState extends State<AddFoodScreen> {
                     hintText: 'Choose date',
                     suffixIcon: const Icon(
                       Icons.date_range,
-                    ), // أيقونة الكالندر على الطرف
+                    ), 
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),
@@ -264,9 +263,8 @@ class _AddFoodScreenState extends State<AddFoodScreen> {
                 ),
                 TextFormField(
                   controller: expiredDateController,
-                  readOnly: true, // 👈 بتمنع ظهور كيبورد الكتابة العادية
+                  readOnly: true,
                   onTap: () async {
-                    // 👈 بتفتح الكالندر كـ Popup فقط عند الضغط
                     final DateTime? picked = await showDatePicker(
                       context: context,
                       initialDate: expiryDate ?? DateTime.now(),
@@ -277,7 +275,6 @@ class _AddFoodScreenState extends State<AddFoodScreen> {
                     if (picked != null) {
                       setState(() {
                         expiryDate = picked;
-                        // تحديث النص الظاهر داخل الحقل
                         expiredDateController.text =
                             "${picked.year}/${picked.month}/${picked.day}";
                       });
@@ -288,7 +285,7 @@ class _AddFoodScreenState extends State<AddFoodScreen> {
                     hintText: 'Choose date',
                     suffixIcon: const Icon(
                       Icons.date_range,
-                    ), // أيقونة الكالندر على الطرف
+                    ),  
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),
