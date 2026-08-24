@@ -216,7 +216,7 @@ class _HomeScreen extends State<HomeScreen> {
         backgroundColor: ConstantColors.primaryColor,
         icon: const Icon(Icons.delivery_dining, color: Colors.white),
         label: const Text(
-          'Pending Orders', // 👈 يعبر عن الطلبات المعلقة المتوفرة للتوصيل
+          'Pending Orders',
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
