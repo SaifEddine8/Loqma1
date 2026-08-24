@@ -13,7 +13,6 @@ class LocalNotificationService {
   static void createOrderNotifications({required OrderModel order}) {
     final now = DateTime.now().microsecondsSinceEpoch;
 
-    // 1️⃣ User Notification
     _allNotifications.insert(
       0,
       NotificationModel(
@@ -26,7 +25,6 @@ class LocalNotificationService {
       ),
     );
 
-    // 2️⃣ Volunteer Notification (Only if a volunteer is assigned)
     if (order.volunteerId != null && order.volunteerId!.isNotEmpty) {
       _allNotifications.insert(
         0,
