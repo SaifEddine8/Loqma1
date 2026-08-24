@@ -85,7 +85,6 @@ class _DeliveryCardState extends State<DeliveryCard> {
         borderRadius: BorderRadius.circular(16),
         child: Column(
           children: [
-            // 1️⃣ Top Section: Offer details and quantity controller
             Padding(
               padding: const EdgeInsets.all(12.0),
               child: Row(
@@ -207,7 +206,6 @@ class _DeliveryCardState extends State<DeliveryCard> {
               ),
             ),
 
-            // 2️⃣ Bottom Bar: Status display and NEXT button
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               decoration: BoxDecoration(
