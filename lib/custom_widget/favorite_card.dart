@@ -40,7 +40,9 @@ class FavoriteCard extends StatelessWidget {
                 Column(
                   mainAxisAlignment: .spaceBetween,
                   children: [
-                    Text(item.title,style: ConstantStyle.titeStyle,),
+                    SizedBox(
+                      width: constraints.maxWidth/4,
+                      child: Text(item.title,style: ConstantStyle.titeStyle,textAlign: .center,)),
                     Row(
                       spacing: 5,
                       children: [
