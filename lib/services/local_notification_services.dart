@@ -13,6 +13,18 @@ class LocalNotificationService {
   static void createOrderNotifications({required OrderModel order}) {
     final now = DateTime.now().microsecondsSinceEpoch;
 
+    int userNotifIndex=_allNotifications.indexWhere((notify)=>notify.order?.orderId==order.orderId&& notify.receiverId == order.userId);
+    
+    if (userNotifIndex != -1) {
+    _allNotifications[userNotifIndex] = _allNotifications[userNotifIndex].copyWith(
+      title: 'Order Status Updated',
+      message: order.volunteerName != null
+          ? 'Your order #${order.orderId} is being prepared by ${order.volunteerName}.'
+          : 'Your order #${order.orderId} status is ${order.status}.',
+      date: DateTime.now(),
+      order: order, 
+    );
+  } else {
     _allNotifications.insert(
       0,
       NotificationModel(
@@ -24,8 +36,14 @@ class LocalNotificationService {
         order: order,
       ),
     );
+  }
 
-    if (order.volunteerId != null && order.volunteerId!.isNotEmpty) {
+  if (order.volunteerId != null && order.volunteerId!.isNotEmpty) {
+    bool volunteerNotifExists = _allNotifications.any(
+      (n) => n.order?.orderId == order.orderId && n.receiverId == order.volunteerId,
+    );
+
+    if (!volunteerNotifExists) {
       _allNotifications.insert(
         0,
         NotificationModel(
@@ -39,6 +57,9 @@ class LocalNotificationService {
       );
     }
   }
+
+    }
+  
 
   static void addPenaltyNotification({
     required String userId,

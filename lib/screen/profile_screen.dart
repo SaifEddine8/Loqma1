@@ -42,12 +42,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 Column(
                   children: [
                     CircleAvatar(
+                      backgroundColor: Colors.orange[200],
                       radius: MediaQuery.of(context).size.height / 18,
                       backgroundImage: user!.profileImage != null
                           ? FileImage(user.profileImage!)
                           : null,
                       child: user.profileImage == null
-                          ? const Icon(Icons.person)
+                          ?  Icon(Icons.person,color: ConstantColors.primaryColor,size: MediaQuery.of(context).size.height / 22,)
                           : null,
                     ),
                     const SizedBox(height: 8),

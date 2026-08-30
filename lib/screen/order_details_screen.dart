@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:loqma/provider/update_user_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:loqma/constant/constant_colors.dart';
 import 'package:loqma/models/order_model.dart';
@@ -165,7 +168,9 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
 
   Widget _buildActionButton(BuildContext context) {
     final cartProvider = Provider.of<CartProvider>(context, listen: false);
-
+    final bool isVolunteer = widget.order.volunteerId != null &&
+        widget.order.volunteerId == context.read<UpdateUserProvider>().currentUser!.id.toString();
+    if(isVolunteer){
     if (currentStatus.toLowerCase() == 'in preparation') {
       return SizedBox(
         width: double.infinity,
@@ -174,7 +179,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
           icon: const Icon(Icons.directions_bike),
           label: const Text('Start Delivery', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.blue,
+            backgroundColor: ConstantColors.primaryColor,
             foregroundColor: Colors.white,
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
           ),
@@ -192,7 +197,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
           icon: const Icon(Icons.check_circle_outline),
           label: const Text('Mark as Delivered', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.green,
+            backgroundColor: ConstantColors.primaryColor,
             foregroundColor: Colors.white,
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
           ),
@@ -223,7 +228,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
           ],
         ),
       );
-    }
+    }}
 
     return const SizedBox.shrink();
   }

@@ -19,12 +19,13 @@ class FavoriteScreen extends StatelessWidget {
         leading: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8),
           child: CircleAvatar(
-            radius: 40,
+            backgroundColor: Colors.orange[200],
+            radius: MediaQuery.of(context).size.height / 30,
             backgroundImage: currentUser!.profileImage != null
                 ? FileImage(currentUser!.profileImage!)
                 : null,
             child: currentUser!.profileImage == null
-                ? const Icon(Icons.person)
+                ?  Icon(Icons.person,color: ConstantColors.primaryColor,size: MediaQuery.of(context).size.height / 40)
                 : null,
           ),
         ),

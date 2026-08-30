@@ -16,7 +16,7 @@ List<Offer> get _currentFavorites {
     _currentUserId = userId;
 
     if (!_userFavorites.containsKey(userId)) {
-      _userFavorites[userId] = [];
+      _userFavorites[userId] =[];
     }
 
     notifyListeners();

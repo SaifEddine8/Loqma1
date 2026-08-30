@@ -192,15 +192,17 @@ class _OfferDetailsState extends State<OfferDetails> {
                   top: 35,
                   left: 20,
                   child: CircleAvatar(
+                    
                     backgroundColor: Colors.black54,
                     child: IconButton(
                       onPressed: (){
                         Navigator.pop(context);
                       },
-                      icon: const Icon(
-                        Icons.arrow_forward_ios,
+                      icon:  Icon(
+                        Icons.arrow_back_ios,
                         color: Colors.white,
                         size: 20,
+                        
                       ),
                     ),
                   ),
@@ -391,7 +393,8 @@ class _OfferDetailsState extends State<OfferDetails> {
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
+                      
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,

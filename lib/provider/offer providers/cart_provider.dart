@@ -137,7 +137,7 @@ class CartProvider with ChangeNotifier {
       orderedItems: Map.from(_currentCart),
       totalPrice: total,
       orderDate: DateTime.now(),
-      status: "in preparation", 
+      status: "pending", 
       volunteerId: null,
       volunteerName: null,
       volunteerPhone: null,
@@ -172,7 +172,7 @@ class CartProvider with ChangeNotifier {
     order.volunteerId = volunteerId;
     order.volunteerName = volunteerName;
     order.volunteerPhone = volunteerPhone;
-    order.status = "pending";
+    order.status = "In Preparation";
 
     LocalNotificationService.createOrderNotifications(order: order);
 
