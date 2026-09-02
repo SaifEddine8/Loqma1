@@ -14,7 +14,7 @@ final  ValueNotifier<List<Offer>> offersNotifier = ValueNotifier<List<Offer>>([
     price: 1.80,
     originalPrice: 4.50,
     category: 'fast food',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrOjwDT1psaP5bz_sw0Le14wmWViiyRytwJY-529Atyg&s=10',
+    image: 'https://img.pikbest.com/png-images/20250730/delicious-crispy-fried-chicken-burger-with-melted-cheese-and-fresh-lettuce_11810495.jpg!sw800',
     volunteerId: null,
   ),
 
@@ -28,7 +28,7 @@ final  ValueNotifier<List<Offer>> offersNotifier = ValueNotifier<List<Offer>>([
     expiryDate: DateTime.now().add(const Duration(days: 3)),
     type: OfferType.donation,
     category: 'vegetablse',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrOjwDT1psaP5bz_sw0Le14wmWViiyRytwJY-529Atyg&s=10',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtrTAm3cVcw4vCHCYz5XKhcdrE1tmYFdnKw0IZl-83PY915UW9_DLcKq_a&s=10',
     volunteerId: 101,
   ),
 
@@ -42,7 +42,7 @@ final  ValueNotifier<List<Offer>> offersNotifier = ValueNotifier<List<Offer>>([
     expiryDate: DateTime.now().add(const Duration(days: 2)),
     type: OfferType.donation,
     category: 'fruits',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrOjwDT1psaP5bz_sw0Le14wmWViiyRytwJY-529Atyg&s=10',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv_J_8WRrzF4aMrR0v6QepjbqG9XTNMAO86NSv8Jpa4CQh0CY3UCBeOhQ&s=10',
     volunteerId: 102,
   ),
 
@@ -58,7 +58,7 @@ final  ValueNotifier<List<Offer>> offersNotifier = ValueNotifier<List<Offer>>([
     price: 2.50,
     originalPrice: 5.50,
     category: 'meat',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrOjwDT1psaP5bz_sw0Le14wmWViiyRytwJY-529Atyg&s=10',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsFWKmBNgvrHBfauLypv7XsBvHbATqOpchE_drF0xajR7Q4L8Y7tz0HelI&s=10',
     volunteerId: null,
   ),
 
@@ -72,7 +72,7 @@ final  ValueNotifier<List<Offer>> offersNotifier = ValueNotifier<List<Offer>>([
     expiryDate: DateTime.now().add(const Duration(days: 4)),
     type: OfferType.donation,
     category: 'dairy',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrOjwDT1psaP5bz_sw0Le14wmWViiyRytwJY-529Atyg&s=10',
+    image: 'https://media.zid.store/cdn-cgi/image/w=480,q=85,f=auto/https://media.zid.store/thumbs/3dfac062-0e10-4b87-af14-41b816f1152c/f5ec4199-270c-41db-818d-011d5f5d39a6-thumbnail-500x500.png',
     volunteerId: 103,
   ),
 
@@ -88,7 +88,7 @@ final  ValueNotifier<List<Offer>> offersNotifier = ValueNotifier<List<Offer>>([
     price: 1.00,
     originalPrice: 3.50,
     category: 'bakery',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrOjwDT1psaP5bz_sw0Le14wmWViiyRytwJY-529Atyg&s=10',
+    image: 'https://cdn.salla.sa/BrqOyO/0bc74587-b0ac-434a-8546-cab33b8a6ad9-748.73096446701x1000-Xl1QFk1aFwWI05NuYuUMr0WLr8wg8rlDhWJaaHo4.png',
     volunteerId: null,
   ),
 
@@ -102,7 +102,7 @@ final  ValueNotifier<List<Offer>> offersNotifier = ValueNotifier<List<Offer>>([
     expiryDate: DateTime.now().add(const Duration(days: 180)),
     type: OfferType.donation,
     category: 'canned',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrOjwDT1psaP5bz_sw0Le14wmWViiyRytwJY-529Atyg&s=10',
+    image: 'https://i.ytimg.com/vi/g-H3g5pfoJ4/hqdefault.jpg',
     volunteerId: 104,
   ),
 
@@ -118,7 +118,7 @@ final  ValueNotifier<List<Offer>> offersNotifier = ValueNotifier<List<Offer>>([
     price: 1.20,
     originalPrice: 3.00,
     category: 'dry food',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrOjwDT1psaP5bz_sw0Le14wmWViiyRytwJY-529Atyg&s=10',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRXnja8Kyatjx_xNcCPWTPOl-QnrPVr9b9gJjjjjv88YJYh-aBVGHk2paI&s=10',
     volunteerId: null,
     
   ),
@@ -133,7 +133,7 @@ final  ValueNotifier<List<Offer>> offersNotifier = ValueNotifier<List<Offer>>([
     expiryDate: DateTime.now().add(const Duration(days: 30)),
     type: OfferType.donation,
     category: 'snacks',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrOjwDT1psaP5bz_sw0Le14wmWViiyRytwJY-529Atyg&s=10',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHZaU-hdYEFKbjkfCN3oxGTPUbYhfd1_tLmhavuRUnQrQuCVYQEdtdGeqK&s=10',
     volunteerId: 105,
   ),
 
@@ -149,7 +149,7 @@ final  ValueNotifier<List<Offer>> offersNotifier = ValueNotifier<List<Offer>>([
     price: 0.75,
     originalPrice: 2.00,
     category: 'drinks',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrOjwDT1psaP5bz_sw0Le14wmWViiyRytwJY-529Atyg&s=10',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsfFu2aNqb4CcGxenFCAMrI7lpRVIPEdz-mx02xeYlww&s=10',
     volunteerId: null,
   ),]);
 

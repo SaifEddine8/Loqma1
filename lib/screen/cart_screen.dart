@@ -189,7 +189,7 @@ class _CartScreenState extends State<CartScreen> {
                           const Spacer(),
 
                            Text(
-                            '${cartProvider.subTotal} JD',
+                            '${cartProvider.subTotal.toStringAsFixed(2)} JD',
                             style: TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.w600,
@@ -203,7 +203,7 @@ class _CartScreenState extends State<CartScreen> {
                       Row(
                         children: [
                           Text(
-                            'Tax',
+                            'Delivery fees',
                             style: TextStyle(
                               fontSize: 14,
                               color: Colors.grey.shade700,
@@ -213,7 +213,7 @@ class _CartScreenState extends State<CartScreen> {
                           const Spacer(),
 
                            Text(
-                            '${cartProvider.tax} JD',
+                            '${cartProvider.deliveryFees.toStringAsFixed(2)} JD',
                             style: TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.w600,
@@ -244,7 +244,7 @@ class _CartScreenState extends State<CartScreen> {
                           const Spacer(),
 
                            Text(
-                            '${cartProvider.subTotal+cartProvider.tax} JD',
+                            '${(cartProvider.total).toStringAsFixed(2)} JD',
                             style: TextStyle(
                               fontSize: 19,
                               fontWeight: FontWeight.w800,

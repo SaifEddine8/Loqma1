@@ -13,7 +13,7 @@ class CartProvider with ChangeNotifier {
   final List<OrderModel> _allOrders = [];
 
   double subTotal = 0.0;
-  double tax = 0.0;
+  double deliveryFees = 2;
 
   List<OrderModel> get allOrders => _allOrders;
 
@@ -25,7 +25,7 @@ class CartProvider with ChangeNotifier {
   List<Offer> get cartItems => _currentCart.keys.toList();
   Map<Offer, int> get fullCartMap => Map.from(_currentCart);
 
-  double get total => subTotal + tax;
+  double get total => subTotal + deliveryFees;
 
   int getQuantity(Offer offer) {
     Offer? target = _currentCart.keys.firstWhere((o) => o.id == offer.id, orElse: () => offer);
@@ -49,7 +49,6 @@ class CartProvider with ChangeNotifier {
   void clearData() {
     _currentUserId = null;
     subTotal = 0.0;
-    tax = 0.0;
     notifyListeners();
   }
 
@@ -100,7 +99,7 @@ class CartProvider with ChangeNotifier {
       0,
       (sum, item) => item.key.type == OfferType.donation ? sum + 0 : sum + (item.key.price! * item.value),
     );
-    tax = subTotal * 0.05;
+    
     notifyListeners();
   }
 
@@ -149,7 +148,6 @@ class CartProvider with ChangeNotifier {
 
     _currentCart.clear();
     subTotal = 0.0;
-    tax = 0.0;
     notifyListeners();
 
     return receipt;

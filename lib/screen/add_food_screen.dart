@@ -321,10 +321,12 @@ class _AddFoodScreenState extends State<AddFoodScreen> {
                         Row(
                           children: [
                             Expanded(
+                              
                               child: RadioListTile<OfferType>(
                                 value: OfferType.donation,
-                                title: Text('donation'),
+                                title: Text('donation', ),
                                 groupValue: selectedType,
+                                contentPadding: EdgeInsets.zero,
                                 onChanged: (value) => setState(() {
                                   selectedType = value;
                                 }),
@@ -332,10 +334,12 @@ class _AddFoodScreenState extends State<AddFoodScreen> {
                               ),
                             ),
                             Expanded(
+                              
                               child: RadioListTile<OfferType>(
                                 value: OfferType.sale,
-                                title: Text('sale'),
+                                title: Text('sale', ),
                                 groupValue: selectedType,
+                                contentPadding: EdgeInsets.zero,
                                 onChanged: (value) => setState(() {
                                   selectedType = value;
                                 }),

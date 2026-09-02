@@ -30,7 +30,15 @@ Future<AddressModel> getAddress() async {
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
       if (data['error'] == null&&data['display_name'] != null) {
-        String formattedAddress = '${data['address']['city']},${data['address']['country']}';
+        final addressData = data['address'] as Map<String, dynamic>;
+        String city = addressData['city'] ??
+              addressData['town'] ??
+              addressData['village'] ??
+              addressData['suburb'] ??
+              addressData['county'] ??
+              'Unknown Area';
+              String country = addressData['country'] ?? '';
+              String formattedAddress = country.isNotEmpty ? '$city, $country' : city;
         return AddressModel(
           address: formattedAddress,
           latitude: selectedLocation.latitude,

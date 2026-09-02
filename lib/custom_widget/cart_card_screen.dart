@@ -121,7 +121,7 @@ class CartCardScreen extends StatelessWidget {
                                   fontSize: 11,
                                 ),
                               ),
-                              const SizedBox(width: 4),
+                              const SizedBox(width: 3),
                             ],
                             Text(
                               "${offer.price} JD",

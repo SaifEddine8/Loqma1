@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loqma/custom_widget/offer_image.dart';
 import 'package:loqma/custom_widget/place_holder_waiting_image.dart';
 import 'package:loqma/models/offer_model.dart';
 
@@ -31,14 +32,15 @@ class WaitingOfferCard extends StatelessWidget {
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(10),
-                  child: offer.image != null && offer.image!.isNotEmpty
-                      ? Image.network(
-                          offer.image!,
-                          width: 80,
-                          height: 80,
-                          fit: BoxFit.cover,
-                          errorBuilder: (_, __, ___) => const PlaceholderImage(),
-                        )
+                  child: offer.image != null && offer.image.isNotEmpty
+                      ? OfferImage(imagePath: offer.image,fit: BoxFit.cover,height: 80,width: 80,)
+                      // Image.network(
+                      //     offer.image,
+                      //     width: 80,
+                      //     height: 80,
+                      //     fit: BoxFit.cover,
+                      //     errorBuilder: (_, __, ___) => const PlaceholderImage(),
+                      //   )
                       : const PlaceholderImage(),
                 ),
                 const SizedBox(width: 12),
